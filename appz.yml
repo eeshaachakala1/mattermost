@@ -1,0 +1,24 @@
+app:
+  name: Mattermost
+  code: mattermost
+  notify: eachakala@ecloudcontrol.com
+
+build:
+  version: 6.3
+  env: DEV
+  build_file: none
+  output_files: output/*.zip
+  image_template: mattermost-6.3.1
+  
+deploy:
+  context: eeshaachakala1/DEV
+  type: statefulset
+  replicas: 1
+  port:
+  - 27017
+  
+properties:
+  DB_USER_ADMIN: admin
+  DB_USER_ADMIN_PASSWORD:
+     vault: DB_USER_ADMIN_PASSWORD
+  revision : 23
