@@ -15,10 +15,29 @@ deploy:
   type: statefulset
   replicas: 1
   port:
-  - 27017
+  - 80
+  
+volumes:
+- claim: mattermost-data
+  mount: /appz/data
+  name: data
+  size: 5Gi
   
 properties:
   DB_USER_ADMIN: admin
   DB_USER_ADMIN_PASSWORD:
      vault: DB_USER_ADMIN_PASSWORD
+  POSTGRESQL_HOST: 
+  MM_USERNAME: mmuser
+  MM_PASSWORD:
+     vault: POSTGRES_MMUSER_PASSWORD
+  MM_DBNAME: mattermost
+  MM_SQLSETTINGS_DRIVERNAME: postgres
+  MM_EMAILSETTINGS_SENDEMAILNOTIFICATIONS: true
+  MM_TEAMSETTINGS_ENABLEOPENSERVER: true
+  MM_SERVICESETTINGS_ENABLEEMAILINVITATIONS: true
+  MM_FILESETTINGS_DIRECTORY: /appz/data/
+  MM_TEAMSETTINGS_SITENAME: MySlack
+  MM_TEAMSETTINGS_ENABLECUSTOMBRAND: true
+  MM_TEAMSETTINGS_CUSTOMBRANDTEXT: MySlack
   revision : 23
