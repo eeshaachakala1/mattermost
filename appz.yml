@@ -37,5 +37,5 @@ properties:
   MM_TEAMSETTINGS_SITENAME: MySlack
   MM_TEAMSETTINGS_ENABLECUSTOMBRAND: true
   MM_TEAMSETTINGS_CUSTOMBRANDTEXT: MySlack
-  revision : 28
+  revision : 29
   
