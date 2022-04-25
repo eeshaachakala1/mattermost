@@ -15,7 +15,7 @@ deploy:
   type: statefulset
   replicas: 1
   port:
-  - 80
+  - 8065
   
 volumes:
 - claim: mattermost-data
